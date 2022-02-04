@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   wordpress:
-    container_name: wp
+    container_name: 'wp'
     image: wordpress:latest
     restart: always
     ports:
