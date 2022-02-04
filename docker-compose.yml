@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  wordpress:
+    container_name: wp
+    image: wordpress:latest
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/var/www/html
+    enviromenet:
+      WORDPRESS_DB_HOST: databse
+      WORDPRESS_DB_USER: rootx_user
+      WORDPRESS_DB_PASSWORD: txHACKER!@#4
+      WORDPRESS_DB_NAME: rootx_db
+    
+
+  databse:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: rootx_db
+      MYSQL_USER: rootx_user
+      MYSQL_PASSWORD: txHACKER!@#4
+      MYSQL_RANDOM_ROOT_PASSWORD: password123
+    volumes:
+      - db:/var/lib/mysql
+
+  
+volumes:
+  db:
